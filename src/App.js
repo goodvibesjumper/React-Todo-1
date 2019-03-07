@@ -2,6 +2,7 @@ import React from "react";
 import { domainToUnicode } from "url";
 
 import TodoList from "./components/TodoComponents/TodoList";
+import TodoForm from "./components/TodoComponents/TodoForm";
 
 const todoList = [
   {
@@ -14,6 +15,7 @@ const todoList = [
 class App extends React.Component {
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
+  // this component is going to take care of state, and any change handlers you need to work with your state
   // this component is going to take care of state, and any
   // change handlers you need to work with your state
   constructor() {
@@ -27,7 +29,7 @@ class App extends React.Component {
   }
 
   inputChangeHandler = event => {
-    this.setState({ [event.target.task]: event.target.value });
+    this.setState({ task: event.target.value });
   };
 
   formSubmitHandler = event => {
@@ -50,21 +52,18 @@ class App extends React.Component {
   render() {
     return (
       <div>
+        <h2>Welcome to your Todo App!</h2>
         <h2>Todo List:</h2>
-        <form onSubmit={this.formSubmitHandler}>
-          <input
-            name="task"
-            value={this.state.task}
-            onChange={this.inputChangeHandler}
-            placeholder="..todo"
-          />
-          <button type="submit">Add Todo</button>
-        </form>
         <div>
           {this.state.stateList.map(task => (
-            <TodoList task={task} />
+            <div> {task.task} </div>
           ))}
         </div>
+        <TodoForm
+          formSubmitHandler={this.formSubmitHandler}
+          value={this.state.task}
+          onChange={this.inputChangeHandler}
+        />
       </div>
     );
   }
