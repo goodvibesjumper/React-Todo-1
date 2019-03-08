@@ -4,6 +4,8 @@ import { domainToUnicode } from "url";
 import TodoList from "./components/TodoComponents/TodoList";
 import TodoForm from "./components/TodoComponents/TodoForm";
 
+import "./components/TodoComponents/Todo.css";
+
 const todoList = [
   {
     task: "Add a task!",
@@ -22,12 +24,12 @@ class App extends React.Component {
     super();
     this.state = {
       todoList: todoList,
-      item: ""
+      task: ""
     };
   }
 
   inputChangeHandler = event => {
-    this.setState({ [event.target.task]: event.target.value });
+    this.setState({ [event.target.name]: event.target.value });
   };
 
   formSubmitHandler = event => {

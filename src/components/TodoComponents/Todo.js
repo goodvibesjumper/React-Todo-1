@@ -2,15 +2,16 @@ import React from "react";
 
 function Todo(props) {
   let completed = props.task.completed ? " completed" : "";
+  console.log(props);
   return (
     <div
       className={`task ${completed}`}
       key={props.task.id}
       onClick={event => {
-        props.toggleItem.task(props.task.id);
+        props.toggleItem(props.task.id);
       }}
     >
-      <p>{props.task.name}</p>
+      <p>{props.task.task}</p>
     </div>
   );
 }
