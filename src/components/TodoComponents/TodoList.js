@@ -5,7 +5,13 @@ import React from "react";
 import Todo from "./Todo.js";
 
 function TodoList(props) {
-  return <Todo />;
+  return (
+    <div className="todo-list">
+      {props.todoList.map(taskItem => {
+        return <Todo task={taskItem} toggleItem={props.toggleItem} />;
+      })}
+    </div>
+  );
 }
 
 export default TodoList;
