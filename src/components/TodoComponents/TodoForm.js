@@ -13,8 +13,11 @@ class TodoForm extends React.Component {
           value={this.props.task}
           onChange={this.props.inputChangeHandler}
           placeholder="..todo"
+          className="input"
         />
-        <button type="submit">Add Todo Item</button>
+        <button type="submit" className="submitBtn">
+          Add Todo Item
+        </button>
       </form>
     );
   }

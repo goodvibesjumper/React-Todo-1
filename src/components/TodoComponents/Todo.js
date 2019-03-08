@@ -11,7 +11,7 @@ function Todo(props) {
         props.toggleItem(props.task.id);
       }}
     >
-      <p>{props.task.task}</p>
+      <p className="list">{props.task.task}</p>
     </div>
   );
 }
